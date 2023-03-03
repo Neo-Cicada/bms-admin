@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -17,7 +16,7 @@ function App() {
           <Routes>                   
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
           </Routes>
         </section>
       </div>

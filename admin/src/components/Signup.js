@@ -17,7 +17,7 @@ const Signup = () => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
-            navigate("/login")
+            navigate("/")
             // ...
         })
         .catch((error) => {
@@ -76,7 +76,7 @@ const Signup = () => {
                    
                     <p>
                         Already have an account?{' '}
-                        <NavLink to="/login" >
+                        <NavLink to="/" >
                             Sign in
                         </NavLink>
                     </p>                   

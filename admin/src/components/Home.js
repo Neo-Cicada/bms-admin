@@ -1,36 +1,44 @@
-import React from 'react';
-import { signOut } from "firebase/auth";
-import {auth} from '../firebase';
-import { useNavigate } from 'react-router-dom';
- 
+import {React, useState, useEffect} from 'react';
+import { collection, getDocs } from "firebase/firestore";
+import LogoutBtn from './LogoutBtn';
+import { db } from '../firebase';
 const Home = () => {
-    const navigate = useNavigate();
- 
-    const handleLogout = () => {               
-        signOut(auth).then(() => {
-        // Sign-out successful.
-            navigate("/");
-            console.log("Signed out successfully")
-        }).catch((error) => {
-        // An error happened.
-        });
-    }
+    const [data, setData] = useState([]);
+
+     useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "CertificateForm"));
+      const documents = querySnapshot.docs.map((doc) => doc.data());
+      setData(documents);
+    };
+
+    fetchData();
+  }, []);
+
+      return(
+    <div>
+      <h1>Fetch data from CertificateForm</h1>
+      <ul>
+        {data.map((doc) => (
+          <li>
+            <h4>{doc.certificate}</h4>
+            <h4>{doc.email}</h4>
+            <h4>{doc.firstname}</h4>
+            <h4>{doc.lastname}</h4>
+            <h4>{doc.phone}</h4>
+          </li>
+          
+         
+
+
+        ))}
+      </ul>
+    </div>
+  );
+} 
+          
+    
+
    
-    return(
-        <>
-            <nav>
-                <p>
-                    Welcome Home
-                </p>
- 
-                <div>
-        			<button onClick={handleLogout}>
-                        Logout
-                    </button>
-        		</div>
-            </nav>
-        </>
-    )
-}
  
 export default Home;
