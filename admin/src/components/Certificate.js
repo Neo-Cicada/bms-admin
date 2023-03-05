@@ -26,10 +26,6 @@ const Certificate = () => {
             <h4>{doc.lastname}</h4>
             <h4>{doc.phone}</h4>
           </li>
-          
-         
-
-
         ))}
       </ul>
     </div>

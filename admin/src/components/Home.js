@@ -1,14 +1,8 @@
-import LogoutBtn from './LogoutBtn';
-import Certificate from './Certificate';
-const Home = () => {
-  return(
-    <Certificate/>
-  )    
-  
-} 
-          
-    
-
+import React from 'react'
+import SideBar from './SideBar'
+export default function Home() {
+  return (
+    <SideBar/>
    
- 
-export default Home;
+  )
+}
