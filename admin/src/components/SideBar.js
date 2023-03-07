@@ -6,13 +6,13 @@
   import Divider from '@mui/material/Divider';
   import Drawer from '@mui/material/Drawer';
   import IconButton from '@mui/material/IconButton';
-  import InboxIcon from '@mui/icons-material/MoveToInbox';
+  // import InboxIcon from '@mui/icons-material/MoveToInbox';
   import List from '@mui/material/List';
-  import ListItem from '@mui/material/ListItem';
+  // import ListItem from '@mui/material/ListItem';
   import ListItemButton from '@mui/material/ListItemButton';
-  import ListItemIcon from '@mui/material/ListItemIcon';
+  // import ListItemIcon from '@mui/material/ListItemIcon';
   import ListItemText from '@mui/material/ListItemText';
-  import MailIcon from '@mui/icons-material/Mail';
+  // import MailIcon from '@mui/icons-material/Mail';
   import MenuIcon from '@mui/icons-material/Menu';
   import Toolbar from '@mui/material/Toolbar';
   import Typography from '@mui/material/Typography';
@@ -21,7 +21,7 @@
   import Equipment from './Equipment';
   import Facility from './Facility';
   import Medicine from './Medicine'
-  import {Link} from "react-router-dom";
+  // import {Link} from "react-router-dom";
   import { useState } from 'react';
   const drawerWidth = 240;
 
@@ -40,19 +40,19 @@
         <Divider />
         <List>
           
-        <ListItemButton onClick={() => setSelectedComponent('certificate')}>
+        <ListItemButton onClick={() => setSelectedComponent('Certificate')}>
           <ListItemText primary='Certificate' />
         </ListItemButton>
-        <ListItemButton onClick={() => setSelectedComponent('enrollment')}>
+        <ListItemButton onClick={() => setSelectedComponent('Enrollment')}>
           <ListItemText primary='Enrollment' />
         </ListItemButton>
-        <ListItemButton onClick={() => setSelectedComponent('equipment')}>
+        <ListItemButton onClick={() => setSelectedComponent('Equipment')}>
           <ListItemText primary='Equipment' />
         </ListItemButton>
-        <ListItemButton onClick={() => setSelectedComponent('facility')}>
+        <ListItemButton onClick={() => setSelectedComponent('Facility')}>
           <ListItemText primary='Facility' />
         </ListItemButton>
-        <ListItemButton onClick={() => setSelectedComponent('medicine')}>
+        <ListItemButton onClick={() => setSelectedComponent('Medicine')}>
           <ListItemText primary='Medicine' />
         </ListItemButton>
 
@@ -96,7 +96,7 @@
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              {selectedComponent}
+              {selectedComponent} Requests
             </Typography>
           </Toolbar>
         </AppBar>
@@ -138,11 +138,11 @@
         >
           <Toolbar />
           {/* //This codes will render its component */}
-          {selectedComponent === 'certificate' && <Certificate />}
-          {selectedComponent === 'enrollment' && <Enrollment />}
-          {selectedComponent === 'equipment' && <Equipment />}
-          {selectedComponent === 'facility' && <Facility />}
-          {selectedComponent === 'medicine' && <Medicine />}
+          {selectedComponent === 'Certificate' && <Certificate />}
+          {selectedComponent === 'Enrollment' && <Enrollment />}
+          {selectedComponent === 'Equipment' && <Equipment />}
+          {selectedComponent === 'Facility' && <Facility />}
+          {selectedComponent === 'Medicine' && <Medicine />}
           
         </Box>
       </Box>
