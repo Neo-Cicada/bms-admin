@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
+import ExpandableItem from './ExpandableItem'
 const Certificate = () => {
     const [data, setData] = useState([]);
 
@@ -16,15 +17,17 @@ const Certificate = () => {
 
       return(
     <div>
-      <h1>Fetch data from CertificateForm</h1>
-      <ul>
+      <ul style={{listStyleType:'none'}}>
         {data.map((doc) => (
-          <li>
-            <h4>{doc.certificate}</h4>
-            <h4>{doc.email}</h4>
-            <h4>{doc.firstname}</h4>
-            <h4>{doc.lastname}</h4>
-            <h4>{doc.phone}</h4>
+          <li style={{padding: '10px'}}>
+            <ExpandableItem
+            certificate={doc.certificate}
+            email={doc.email}
+            title={doc.firstname}
+            lastname={doc.lastname}
+            number={doc.phone}
+            
+            />
           </li>
         ))}
       </ul>

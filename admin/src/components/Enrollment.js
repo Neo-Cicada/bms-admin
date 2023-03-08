@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
+import ExpandableItem from './ExpandableItem';
 export default function Enrollment() {
   const [data, setData] = useState([]);
 
@@ -15,27 +16,28 @@ export default function Enrollment() {
   }, []);
   return(
     <div>
-      <h1>Fetch data from Enrollment Form</h1>
-      <ul>
+      <ul style={{listStyleType:'none'}}>
         {data.map((doc) => (
-          <li>
-            <h4>{doc.address}</h4>
-            <h4>{doc.birthday}</h4>
-            <h4>{doc.city}</h4>
-            <h4>{doc.emergencyfirstname}</h4>
-            <h4>{doc.emergencylastname}</h4>
-            <h4>{doc.emergencynumber}</h4>
-            <h4>{doc.firstname}</h4>
-            <h4>{doc.lastname}</h4>
-            <h4>{doc.middlename}</h4>
-            <h4>{doc.province}</h4>
-            <h4>{doc.guardianfname}</h4>
-            <h4>{doc.guardianlname}</h4>
-            <h4>{doc.guardianphone}</h4>
+          <li style={{padding: '10px'}}>
+           <ExpandableItem
+            address={doc.address}
+            birthday={doc.birthday}
+            city={doc.city}
+            emergencynumber={doc.emergencynumber}
+            emegergencyfirstname={doc.emegergencyfirstname}
+            title={doc.firstname}
+            guardianfname={doc.guardianfname}
+            guardianlname={doc.guardianlname}
+            guardianphone={doc.guardianphone}
+            lastname={doc.lastname}
+            middlename={doc.middlename}
+            province={doc.province}
+            
+            
+            />
 
 
 
-            <h4>{doc.phone}</h4>
           </li>
         ))}
       </ul>

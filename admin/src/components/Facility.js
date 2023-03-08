@@ -16,10 +16,9 @@ export default function Facility() {
   }, []);
   return(
     <div>
-      <h1>Fetch data from Facility Form</h1>
-      <ul>
+      <ul style={{listStyleType:'none'}}>
         {data.map((doc) => (
-          <li>
+          <li style={{padding: '10px'}}>
             <ExpandableItem 
             title={doc.firstname}
             email={doc.email}

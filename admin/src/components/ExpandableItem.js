@@ -40,7 +40,31 @@ const ExpandableContent = styled(Grid)(({ theme }) => ({
 //     lastname: "",
 //   };
 
-  const ExpandableItem = ({ title, email, lastname, number, facility}) => {
+  const ExpandableItem = ({ 
+    title, 
+    // title is firstname
+    email,
+    lastname,
+    number,
+    facility,
+    certificate,
+    barangay,
+    city,
+    equipment,
+    province,
+    medicine,
+    address,
+    birthday,
+    emegergencyfirstname,
+    emergencynumber,
+    guardianfname,
+    guardianlname,
+    guardianphone,
+    middlename,
+
+
+
+  }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleToggle = () => {
@@ -68,8 +92,8 @@ const ExpandableContent = styled(Grid)(({ theme }) => ({
           
         </Box>
         <Box> {/*Accept and Decline Button here*/}
-          <Button>Accept</Button>
-          <Button>Decline</Button>
+          <Button color="success" variant="outlined"style={{margin: '10px'}} >Accept</Button>
+          <Button color="error" variant="outlined" style={{margin: '10px'}}> Decline</Button>
         </Box>
       </Box>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -100,6 +124,15 @@ const ExpandableContent = styled(Grid)(({ theme }) => ({
           
           
           {number}
+        </ExpandableContent>
+        <ExpandableContent
+          container
+          spacing={2}
+          onClick={(event) => event.stopPropagation()}
+        >
+          
+          
+          
           {facility}
         </ExpandableContent>
       </Collapse>

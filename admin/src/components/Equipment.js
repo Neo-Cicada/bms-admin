@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
+import ExpandableItem from './ExpandableItem';
 export default function Equipment() {
   const [data, setData] = useState([]);
 
@@ -15,17 +16,19 @@ export default function Equipment() {
 }, []);
 return(
   <div>
-    <h1>Fetch data from Equiment Form</h1>
-    <ul>
+    <ul style={{listStyleType:'none'}}>
       {data.map((doc) => (
-        <li>
-          <h4>{doc.barangay}</h4>
-          <h4>{doc.city}</h4>
-          <h4>{doc.email}</h4>
-          <h4>{doc.equipment}</h4>
-          <h4>{doc.firstname}</h4>
-          <h4>{doc.lastname}</h4>
-          <h4>{doc.phone}</h4>
+        <li style={{padding: '10px'}}>
+         <ExpandableItem
+            barangay={doc.barangay}
+            city={doc.city}
+            equipment={doc.equipment}
+            title={doc.firstname}
+            lastname={doc.lastname}
+            number={doc.phone}
+            
+            
+            />
 
         </li>
       ))}
